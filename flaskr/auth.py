@@ -7,6 +7,14 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from flaskr.db import get_db
 
+from jinja2 import Markup, Environment, FileSystemLoader
+from pyecharts.globals import CurrentConfig
+
+
+from pyecharts import options as opts
+from pyecharts.charts import Bar
+
+
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 
@@ -96,7 +104,7 @@ def login():
             # store the user id in a new session and return to the index
             session.clear()
             session['user_id'] = user['id']
-            return redirect(url_for('index'))
+            return redirect(url_for('auth.data'))
 
         flash(error)
 
@@ -108,3 +116,19 @@ def logout():
     """Clear the current session, including the stored user id."""
     session.clear()
     return redirect(url_for('index'))
+
+@bp.route('/data')
+def data():
+    c = bar_base()
+    return Markup(c.render_embed())
+
+
+def bar_base() -> Bar:
+    c = (
+        Bar()
+        .add_xaxis(["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"])
+        .add_yaxis("商家A", [5, 20, 36, 10, 75, 90])
+        .add_yaxis("商家B", [15, 25, 16, 55, 48, 8])
+        .set_global_opts(title_opts=opts.TitleOpts(title="Bar-基本示例", subtitle="我是副标题"))
+    )
+    return c

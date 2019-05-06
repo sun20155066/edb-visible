@@ -5,7 +5,7 @@ from flask import (Flask,render_template)
 
 def create_app():
     """Create and configure an instance of the Flask application."""
-    app = Flask(__name__)
+    app = Flask(__name__,static_folder="templates")
     app.config.from_mapping(
         # a default secret that should be overridden by instance config
         SECRET_KEY='dev',
