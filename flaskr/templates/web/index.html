@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="wrap">
+        <div class="left">
+        <ul>
+  {% for table in tables %}
+      <li>{{ table['Tables_in_edb'] }}</li>
+  {% endfor %}
+        </ul>
+    </div>
+
+
+    <div class="right">
+        <h1>hello world</h1>
+    </div>
+
+    </div>
+{% endblock %}

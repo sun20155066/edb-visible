@@ -16,8 +16,11 @@ def create_app():
     db.init_app(app)
 
     # apply the blueprints to the app
-    from flaskr import auth
+    from flaskr import auth,visible,web
+
     app.register_blueprint(auth.bp)
+    app.register_blueprint(visible.bp)
+    app.register_blueprint(web.bp)
 
     @app.route('/')
     def index():
