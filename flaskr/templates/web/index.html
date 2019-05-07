@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="wrap">
-        <div class="left">
+<div class="wrap">
+    <div class="left">
         <ul>
-  {% for table in tables %}
-      <li>{{ table['Tables_in_edb'] }}</li>
-  {% endfor %}
+            {% for table in tables %}
+            <li>{{ table['Tables_in_edb'] }}</li>
+            {% endfor %}
         </ul>
     </div>
 
@@ -15,5 +15,5 @@
         <h1>hello world</h1>
     </div>
 
-    </div>
+</div>
 {% endblock %}
