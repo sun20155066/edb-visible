@@ -1,0 +1,8 @@
+.idea/dataSources.local.xml
+.idea/workspace.xml
+.idea/dataSources/7baa037b-de9a-45ea-8b39-bb2979d9d74d.xml
+flaskr/__pycache__/__init__.cpython-37.pyc
+flaskr/__pycache__/auth.cpython-37.pyc
+flaskr/__pycache__/db.cpython-37.pyc
+flaskr/__pycache__/visible.cpython-37.pyc
+flaskr/__pycache__/web.cpython-37.pyc
