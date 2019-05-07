@@ -5,14 +5,19 @@
     <div class="left">
         <ul>
             {% for table in tables %}
-            <li>{{ table['Tables_in_edb'] }}</li>
+            <li><a href="{{ url_for('web.add',tableName=table['Tables_in_edb']) }}"> {{ table['Tables_in_edb'] }} </a>
+            </li>
             {% endfor %}
         </ul>
     </div>
 
 
     <div class="right">
-        <h1>hello world</h1>
+
+        {% for data in datas %}
+        <h1> {{data}} </h1>
+        {% endfor %}
+
     </div>
 
 </div>
