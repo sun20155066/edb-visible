@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <title>Proudly presented by ECharts</title>
-    {% for jsfile_name in script_list %}
-        <script src="{{ host }}/{{ jsfile_name }}.js"></script>
-    {% endfor %}
-</head>
 
+{% block content %}
 <body>
+<ul class="user">
+<li class="userMes"><a href="#home">主页</a></li>
+<li class="userMes"><a href="#news">新闻</a></li>
+<li class="userMes"><a href="#contact">联系</a></li>
+<li class="userMes"><a href="#about">关于</a></li>
+</ul>
+
   {{ myechart|safe }}
 </body>
-
-</html>
+{% endblock %}

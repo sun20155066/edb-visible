@@ -40,13 +40,13 @@ def doVisible():
         bar.add_xaxis(["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"])
         bar.add_yaxis("商家A", [5, 20, 36, 10, 75, 90]) 
         bar.add_yaxis("商家B", [25, 36, 10, 75, 90]) 
-        bar.set_global_opts(title_opts=opts.TitleOpts(title="主标题", subtitle="副标题",),
-                            toolbox_opts=opts.ToolboxOpts(),
+        bar.set_global_opts(toolbox_opts=opts.ToolboxOpts(),
                             datazoom_opts=[opts.DataZoomOpts()],)
 
 
     return render_template('pyecharts.html',
                            myechart=bar.render_embed(),
                            )
+
+
                            
-    # return Markup(bar.render_embed())

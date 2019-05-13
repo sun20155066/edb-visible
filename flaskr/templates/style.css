@@ -20,6 +20,28 @@ a {
   color: #377ba8;
 }
 
+.user {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.userMes {
+    float: right;
+}
+
+
+.userMes {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
 
 .wrap {
   display: -webkit-box;
