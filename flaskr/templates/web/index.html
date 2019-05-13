@@ -11,13 +11,19 @@
         </ul>
     </div>
 
-
     <div class="right">
-
-        {% for data in datas %}
-        <h1> {{data}} </h1>
-        {% endfor %}
-
+        <table border="0.1">
+            <tr>
+                <th>date</th>
+                <th>data</th>
+            </tr>
+            {% for data in datas %}
+            <tr>
+                <td>{{data['A']}}</td>
+                <td>{{data['B']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
 
 </div>

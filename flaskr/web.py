@@ -26,5 +26,9 @@ def add(tableName):
     cur = db.cursor()
     cur.execute('select * from `{0}`'.format(tableName))
     datas = cur.fetchall()
+    cur.execute(
+        'show tables'
+    )
+    tables = cur.fetchall()
 
-    return render_template('web/index.html', datas=datas)
+    return render_template('web/index.html', datas=datas,tables=tables)
