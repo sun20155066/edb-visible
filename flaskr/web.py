@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, render_template,
+    Blueprint, render_template,request
 )
 from flaskr.db import get_db
 from flaskr.auth import login_required
@@ -20,15 +20,20 @@ def index():
     tables = cur.fetchall()
     return render_template('web/index.html', tables=tables)
 
+
+tableNames = []
+
 @bp.route('/<tableName>/add')
 def add(tableName):
     db = get_db()
     cur = db.cursor()
-    cur.execute('select * from `{0}`'.format(tableName))
-    datas = cur.fetchall()
+
+    tableNames.append(tableName)
+    tableNames2 = list(set(tableNames))
+
     cur.execute(
         'show tables'
     )
     tables = cur.fetchall()
 
-    return render_template('web/index.html', datas=datas,tables=tables)
+    return render_template('web/index.html',tables=tables,tableNames=tableNames2)

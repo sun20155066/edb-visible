@@ -28,3 +28,12 @@ a {
   padding: 10px;
   border: 1px solid #f40;
 }
+
+.right {
+  display: -webkit-box;
+}
+
+.rightTop,.rightBottom {
+  padding: 10px;
+  border: 1px solid #f40
+}
