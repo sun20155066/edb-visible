@@ -1,15 +1,41 @@
 {% extends 'base.html' %}
 
+{% block header %}
+<script>
+    var theme = 'light';
+    function changeTheme(theme) {
+      theme = theme;
+    }
+</script>
+{% endblock %}
 
 {% block content %}
 <body>
-<ul class="user">
-<li class="userMes"><a href="#home">主页</a></li>
-<li class="userMes"><a href="#news">新闻</a></li>
-<li class="userMes"><a href="#contact">联系</a></li>
-<li class="userMes"><a href="#about">关于</a></li>
-</ul>
+    <ul>
+        <div class="dropdown">
+          <a href="{{ url_for('visible.lineChart',theme=theme) }}">折线图</a>
+          <a href="{{ url_for('visible.scatterChart',theme=theme) }}">散点图</a>
+          <a href="{{ url_for('visible.barChart',theme=theme) }}">柱状图</a>
+         
+        </div>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">设计</a>
+          <div class="dropdown-content">
+            <a href="#">折线图1</a>
+            <a href="#">散点图1</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="javascript:changeTheme('light')" >风格-light</a>
+          <a href="javascript:changeTheme('dark')" >风格-dark</a>
+          <a href="javascript:changeTheme('walden')" >风格-walden</a>
+          <a href="javascript:changeTheme('romantic')" >风格-romantic</a>
+
+        </div>
+      </ul>
 
   {{ myechart|safe }}
+
+
 </body>
 {% endblock %}

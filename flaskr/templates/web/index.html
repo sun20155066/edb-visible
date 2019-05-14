@@ -14,7 +14,7 @@
     <div class="right">
         <div class="rightTop">
 
-            <form  method="post" action="/doVisible">
+            <form  method="post" action="/barChart/light">
                 {% for tablename in tableNames %}
                 <p><input type="checkbox" name="tablename" checked="checked" value={{ tablename }} /> {{ tablename }}</p>
                 {% endfor %}
