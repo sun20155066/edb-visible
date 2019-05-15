@@ -8,6 +8,10 @@
   <script src="{{ url_for('static', filename='jquery-3.4.1.min.js') }}"></script>
   <script src="{{ url_for('static', filename='echarts.min.js') }}"></script>
 
+  <!-- 引入主题文件 -->
+  <script src="{{ url_for('static', filename='vintage.js') }}"></script>
+  <script src="{{ url_for('static', filename='purple-passion.js') }}"></script>
+
 </head>
 {% endblock %}
 
@@ -30,11 +34,10 @@
         </div>
       </div>
       <div class="dropdown">
-        <a href="{{ url_for('visible.setTheme',chartType='lineChart',setTheme='dark' ) }}">风格-dark</a>
-        <a href="{{ url_for('visible.setTheme',chartType='lineChart',setTheme='light' ) }}">风格-light</a>
-        <!-- <a href="{{ url_for('visible.visible',chartType='lineChart',theme='walden' ) }}">风格-walden</a>
-        <a href="{{ url_for('visible.visible',chartType='lineChart',theme='romantic' ) }}">风格-romantic</a> -->
-
+        <a href="{{ url_for('visible.setTheme', setTheme='dark' ) }}">风格-dark</a>
+        <a href="{{ url_for('visible.setTheme', setTheme='light' ) }}">风格-light</a>
+        <a href="{{ url_for('visible.setTheme', setTheme='purple-passion' ) }}">风格-purple-passion</a>
+        <a href="{{ url_for('visible.setTheme', setTheme='vintage' ) }}">风格-vintage</a>
       </div>
     </ul>
   </div>

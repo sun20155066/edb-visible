@@ -1,8 +1,11 @@
-from flask import Blueprint,request,render_template,redirect
+from flask import Blueprint,request,render_template,redirect,url_for
 from pyecharts import options as opts
 from pyecharts.charts import Bar,Line,Scatter,Pie
 from flaskr.db import get_db
 from random import randrange
+
+
+from pyecharts.globals import ThemeType
 
 
 bp = Blueprint('visible', __name__)
@@ -71,8 +74,7 @@ def barChart(chartType,theme):
                 Y2.append(data[names[1]])
                 Y3.append(data[names[2]])
            
-
-        return render_template('pyecharts.html',operator=chartType,theme=theme)
+        return redirect(url_for('visible.visible',chartType='lineChart') )
 
 
 def bar_base() -> Bar:
@@ -196,10 +198,11 @@ def get_scatter_chart():
 def visible(chartType):
     return render_template("pyecharts.html",operator=chartType,theme=theme)
 
-@bp.route("/setTheme/<chartType>/<setTheme>",methods=('GET','POST'))
-def setTheme(chartType,setTheme):
+@bp.route("/setTheme/<setTheme>",methods=('GET','POST'))
+def setTheme(setTheme):
     global theme
     theme = setTheme
     before_url = request.referrer
 
+    print('before_url======',before_url)
     return redirect(before_url)
