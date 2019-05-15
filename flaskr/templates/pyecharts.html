@@ -17,9 +17,9 @@
   <div style="width:'100%'; height:50px;">
     <ul>
       <div class="dropdown">
-        <a href="{{ url_for('visible.visible',chartType='lineChart',theme='light' ) }}">折线图</a>
-        <a href="{{ url_for('visible.visible',chartType='scatterChart',theme='light' ) }}">散点图</a>
-        <a href="{{ url_for('visible.visible',chartType='barChart',theme='light' ) }}">柱状图</a>
+        <a href="{{ url_for('visible.visible',chartType='lineChart' ) }}">折线图</a>
+        <a href="{{ url_for('visible.visible',chartType='scatterChart' ) }}">散点图</a>
+        <a href="{{ url_for('visible.visible',chartType='barChart' ) }}">柱状图</a>
 
       </div>
       <div class="dropdown">
@@ -30,10 +30,10 @@
         </div>
       </div>
       <div class="dropdown">
-        <a href="{{ url_for('visible.visible',chartType='lineChart',theme='dark' ) }}">风格-dark</a>
-        <a href="{{ url_for('visible.visible',chartType='lineChart',theme='light' ) }}">风格-light</a>
-        <a href="{{ url_for('visible.visible',chartType='lineChart',theme='walden' ) }}">风格-walden</a>
-        <a href="{{ url_for('visible.visible',chartType='lineChart',theme='romantic' ) }}">风格-romantic</a>
+        <a href="{{ url_for('visible.setTheme',chartType='lineChart',setTheme='dark' ) }}">风格-dark</a>
+        <a href="{{ url_for('visible.setTheme',chartType='lineChart',setTheme='light' ) }}">风格-light</a>
+        <!-- <a href="{{ url_for('visible.visible',chartType='lineChart',theme='walden' ) }}">风格-walden</a>
+        <a href="{{ url_for('visible.visible',chartType='lineChart',theme='romantic' ) }}">风格-romantic</a> -->
 
       </div>
     </ul>
