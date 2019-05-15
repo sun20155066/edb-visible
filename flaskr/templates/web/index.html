@@ -12,34 +12,14 @@
     </div>
 
     <div class="right">
-        <div class="rightTop">
+        <form method="post" action="/saveData/barChart/light">
+            {% for tablename in tableNames %}
+            <p><input type="checkbox" name="tablename" checked="checked" value={{ tablename }} />
+                {{ tablename }}<button>delete</button></p>
 
-            <form  method="post" action="/saveData/barChart/light">
-                {% for tablename in tableNames %}
-                <p><input type="checkbox" name="tablename" checked="checked" value={{ tablename }} /> {{ tablename }}</p>
-                {% endfor %}
-                <input type="submit" value="查看图形" />
-            </form>
-
-        </div>
-        <!-- <div class="rightBottom">
-            <table border="1">
-                <tr>
-                    <th>date</th>
-                    {% for tablename in tableNames %}
-                    <th>{{tablename}}</th>
-                    {% endfor %}
-                </tr>
-                {% for data in content %}
-                <tr>
-
-                    <td>{{ data['A'] }}</td>
-                    <td>{{ data['B'] }}</td>
-                </tr>
-                {% endfor %} -->
-
-            </table>
-        </div>
+            {% endfor %}
+            <input type="submit" value="查看图形" />
+        </form>
     </div>
 
 </div>
