@@ -1,5 +1,19 @@
 {% extends 'base.html' %}
 
+{% block header %}
+<script src="{{ url_for('static', filename='jquery-3.4.1.min.js') }}"></script>
+<script type="text/javascript">
+    function formReset(tableNames) {
+        var len = tableNames.length;
+        for(var i = 1;i<len+1;i++) {
+            var temp = `#checkbox${i}`;
+            $(temp).prop('checked', false);
+        }
+    }
+</script>
+
+{% endblock %}
+
 {% block content %}
 <div class="wrap">
     <div class="left">
@@ -12,13 +26,13 @@
     </div>
 
     <div class="right">
-        <form method="post" action="/saveData/barChart/light">
+        <form method="post" action="/saveData/barChart/light" id="myForm">
             {% for tablename in tableNames %}
-            <p><input type="checkbox" name="tablename" checked="checked" value={{ tablename }} />
-                {{ tablename }}<button>delete</button></p>
-
+            <p><input type="checkbox" id="checkbox{{loop.index}}" name="tablename" checked="true" value={{ tablename }} />
+                {{ tablename }}</p>
             {% endfor %}
             <input type="submit" value="查看图形" />
+            <input type="button" onclick="formReset({{tableNames}})" value="重置" />
         </form>
     </div>
 

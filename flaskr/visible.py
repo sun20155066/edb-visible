@@ -19,7 +19,7 @@ theme = 'light'
 
 
 @bp.route('/saveData/<chartType>/<theme>',methods=('GET','POST'))
-def barChart(chartType,theme):
+def saveData(chartType,theme):
     if request.method == 'POST':
         global names,X,Y1,Y2,Y3
         names = request.form.getlist('tablename')
@@ -86,7 +86,12 @@ def bar_base() -> Bar:
             Bar()
             .add_xaxis(X)
             .add_yaxis(names[0],Y1)
-            .set_global_opts(toolbox_opts=opts.ToolboxOpts())
+            .set_global_opts(toolbox_opts=opts.ToolboxOpts(),
+                            title_opts=opts.TitleOpts(title="BarChart"),
+                            yaxis_opts=opts.AxisOpts(name="Data"),
+                            xaxis_opts=opts.AxisOpts(name="Date"),
+                            datazoom_opts=[opts.DataZoomOpts(), opts.DataZoomOpts(type_="inside")],
+                            )
         )
 
     elif len(names) == 2:
@@ -95,7 +100,12 @@ def bar_base() -> Bar:
             .add_xaxis(X)
             .add_yaxis(names[0],Y1)
             .add_yaxis(names[1],Y2)
-            .set_global_opts(toolbox_opts=opts.ToolboxOpts())
+            .set_global_opts(toolbox_opts=opts.ToolboxOpts(),
+                            title_opts=opts.TitleOpts(title="BarChart"),
+                            yaxis_opts=opts.AxisOpts(name="Data"),
+                            xaxis_opts=opts.AxisOpts(name="Date"),
+                            datazoom_opts=[opts.DataZoomOpts(), opts.DataZoomOpts(type_="inside")],
+                            )
         )
 
     elif len(names) == 3:
@@ -105,7 +115,12 @@ def bar_base() -> Bar:
             .add_yaxis(names[0],Y1)
             .add_yaxis(names[1],Y2)
             .add_yaxis(names[2],Y3)
-            .set_global_opts(toolbox_opts=opts.ToolboxOpts())
+            .set_global_opts(toolbox_opts=opts.ToolboxOpts(),
+                            title_opts=opts.TitleOpts(title="BarChart"),
+                            yaxis_opts=opts.AxisOpts(name="Data"),
+                            xaxis_opts=opts.AxisOpts(name="Date"),
+                            datazoom_opts=[opts.DataZoomOpts(), opts.DataZoomOpts(type_="inside")],
+                            )
         )
         
     return c
@@ -120,7 +135,12 @@ def line_base() -> Line:
             Line()
             .add_xaxis(X)
             .add_yaxis(names[0],Y1)
-            .set_global_opts(toolbox_opts=opts.ToolboxOpts())
+            .set_global_opts(toolbox_opts=opts.ToolboxOpts(),
+                            title_opts=opts.TitleOpts(title="LineChart"),
+                            yaxis_opts=opts.AxisOpts(name="Data"),
+                            xaxis_opts=opts.AxisOpts(name="Date"),
+                            datazoom_opts=[opts.DataZoomOpts(), opts.DataZoomOpts(type_="inside")],
+                            )
         )
 
     elif len(names) == 2:
@@ -129,7 +149,12 @@ def line_base() -> Line:
             .add_xaxis(X)
             .add_yaxis(names[0],Y1)
             .add_yaxis(names[1],Y2)
-            .set_global_opts(toolbox_opts=opts.ToolboxOpts())
+            .set_global_opts(toolbox_opts=opts.ToolboxOpts(),
+                            title_opts=opts.TitleOpts(title="LineChart"),
+                            yaxis_opts=opts.AxisOpts(name="Data"),
+                            xaxis_opts=opts.AxisOpts(name="Date"),
+                            datazoom_opts=[opts.DataZoomOpts(), opts.DataZoomOpts(type_="inside")],
+                            )
         )
 
     elif len(names) == 3:
@@ -139,7 +164,12 @@ def line_base() -> Line:
             .add_yaxis(names[0],Y1)
             .add_yaxis(names[1],Y2)
             .add_yaxis(names[2],Y3)
-            .set_global_opts(toolbox_opts=opts.ToolboxOpts())
+            .set_global_opts(toolbox_opts=opts.ToolboxOpts(),
+                            title_opts=opts.TitleOpts(title="LineChart"),
+                            yaxis_opts=opts.AxisOpts(name="Data"),
+                            xaxis_opts=opts.AxisOpts(name="Date"),
+                            datazoom_opts=[opts.DataZoomOpts(), opts.DataZoomOpts(type_="inside")],
+                            )
         )
         
     return c
@@ -153,7 +183,12 @@ def scatter_base() -> Scatter:
             Scatter()
             .add_xaxis(X)
             .add_yaxis(names[0],Y1)
-            .set_global_opts(toolbox_opts=opts.ToolboxOpts())
+            .set_global_opts(toolbox_opts=opts.ToolboxOpts(),
+                            title_opts=opts.TitleOpts(title="ScatterChart"),
+                            yaxis_opts=opts.AxisOpts(name="Data"),
+                            xaxis_opts=opts.AxisOpts(name="Date"),
+                            datazoom_opts=[opts.DataZoomOpts(), opts.DataZoomOpts(type_="inside")],
+                            )
         )
 
     elif len(names) == 2:
@@ -162,7 +197,12 @@ def scatter_base() -> Scatter:
             .add_xaxis(X)
             .add_yaxis(names[0],Y1)
             .add_yaxis(names[1],Y2)
-            .set_global_opts(toolbox_opts=opts.ToolboxOpts())
+            .set_global_opts(toolbox_opts=opts.ToolboxOpts(),
+                            title_opts=opts.TitleOpts(title="ScatterChart"),
+                            yaxis_opts=opts.AxisOpts(name="Data"),
+                            xaxis_opts=opts.AxisOpts(name="Date"),
+                            datazoom_opts=[opts.DataZoomOpts(), opts.DataZoomOpts(type_="inside")],
+                            )
         )
 
     elif len(names) == 3:
@@ -172,7 +212,12 @@ def scatter_base() -> Scatter:
             .add_yaxis(names[0],Y1)
             .add_yaxis(names[1],Y2)
             .add_yaxis(names[2],Y3)
-            .set_global_opts(toolbox_opts=opts.ToolboxOpts())
+            .set_global_opts(toolbox_opts=opts.ToolboxOpts(),
+                            title_opts=opts.TitleOpts(title="ScatterChart"),
+                            yaxis_opts=opts.AxisOpts(name="Data"),
+                            xaxis_opts=opts.AxisOpts(name="Date"),
+                            datazoom_opts=[opts.DataZoomOpts(), opts.DataZoomOpts(type_="inside")],
+                            )
         )
         
     return c

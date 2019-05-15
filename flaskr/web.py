@@ -30,6 +30,8 @@ def add(tableName):
 
     tableNames.append(tableName)
     tableNames2 = list(set(tableNames))
+    tableNames2.sort(key = tableNames.index)
+    tableNames2.reverse()
 
     cur.execute(
         'show tables'
