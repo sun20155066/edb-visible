@@ -28,7 +28,7 @@ def allowed_file(filename):
 def importExcelToMysql(path):
     db = get_db()
     cur = db.cursor()
-    tablename = path.split('\\')[-1].split('.')[0]
+    tablename = 'User_' + path.split('\\')[-1].split('.')[0]
     #删除表
     cur.execute("drop table if exists {0}".format(tablename))
     #创建表
@@ -79,7 +79,7 @@ def upload():
         upload_path = os.path.join(basedir, "upload", fname)
         f.save(upload_path)  #保存文件到upload目录
         importExcelToMysql(upload_path)
-        userDatas.append(fname.split('.')[0])
+        userDatas.append('User_' + fname.split('.')[0])
         userDatas2 = list(set(userDatas))
         userDatas2.sort(key = userDatas.index)
         userDatas2.reverse()

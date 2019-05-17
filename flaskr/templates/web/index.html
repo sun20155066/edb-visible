@@ -24,8 +24,10 @@
     <div class="left">
         <ul>
             {% for table in tables %}
+            {% if table['Tables_in_edb'] != 'user' and table['Tables_in_edb'].split('_')[0].lower() != 'user' %}
             <li><a href="{{ url_for('web.add',tableName=table['Tables_in_edb']) }}"> {{ table['Tables_in_edb'] }} </a>
             </li>
+            {% endif %}
             {% endfor %}
         </ul>
         
