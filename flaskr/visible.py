@@ -18,8 +18,8 @@ names  = []
 theme = 'light'
 
 
-@bp.route('/saveData/<chartType>/<theme>',methods=('GET','POST'))
-def saveData(chartType,theme):
+@bp.route('/saveData/<chartType>',methods=('GET','POST'))
+def saveData(chartType):
     if request.method == 'POST':
         global names,X,Y1,Y2,Y3
         names = request.form.getlist('tablename')

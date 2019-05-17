@@ -19,28 +19,26 @@
 
 {% endblock %}
 
-{% block content %}
-<div class="wrap">
-    <div class="left">
-        <ul>
-            {% for table in tables %}
-            <li><a href="{{ url_for('web.add',tableName=table['Tables_in_edb']) }}"> {{ table['Tables_in_edb'] }} </a>
-            </li>
-            {% endfor %}
-        </ul>
-        
-    </div>
 
-    <div class="right">
+{% block content %}
+<div class="myData">
+        <a href="{{ url_for('web.downloader') }}">
+            <button>导入数据模板下载</button>
+        </a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="{{ url_for('web.importFile') }}">
+            <button>导入数据</button>
+        </a>
+
         <form method="post" action="/saveData/barChart" id="myForm">
-            {% for tablename in tableNames %}
-            <p><input type="checkbox" id="checkbox{{loop.index}}" name="tablename" checked="true" value={{ tablename }} />
-                {{ tablename }}</p>
+            
+            {% for userData in userDatas %}
+            <p><input type="checkbox" id="checkbox{{loop.index}}" name="tablename" checked="true" value={{ userData }} />
+                {{ userData }}</p>
             {% endfor %}
             <input class="visible" type="submit" value="查看图形" />
-            <input class="reset" type="button" onclick="formReset({{tableNames}})" value="重置" />
+            <input class="reset" type="button" onclick="formReset({{userDatas}})" value="重置" />
+            
         </form>
-    </div>
-
 </div>
 {% endblock %}

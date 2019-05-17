@@ -1,16 +1,15 @@
 <!doctype html>
 <title>{% block title %}{% endblock %} - Flaskr</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 <nav>
-  <h1><a href="{{ url_for('web.index') }}">Visible</a></h1>
+  <h1 style="background-color:cornflowerblue;"><a style="color: rgba(134, 6, 6, 0.959)" href="{{ url_for('web.index') }}">Visible</a></h1>
   <ul class="user">
     {% if g.user %}
       <li class="userMes"><span>{{ g.user['username'] }}</span></li>
       <li class="userMes"><a href="{{ url_for('auth.logout') }}">  Log Out</a></li>
-    {% else %}
-      <li class="userMes"><a href="{{ url_for('auth.register') }}">Register</a></li>
-      <li class="userMes"><a href="{{ url_for('auth.login') }}">  Log In</a></li>
     {% endif %}
+    {%block nav %}{% endblock %}
   </ul>
 </nav>
 <section class="content">
