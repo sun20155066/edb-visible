@@ -91,6 +91,8 @@ def upload():
 @bp.route('/myData')
 @login_required
 def myData():
+    global userDatas
+    userDatas = []
     return render_template('web/myData.html')
 
 
@@ -98,6 +100,8 @@ def myData():
 @bp.route('/index')
 @login_required
 def index():
+    global tableNames
+    tableNames = []
     """Show dataVisible web."""
     db = get_db()
     cur = db.cursor()

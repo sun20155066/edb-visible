@@ -6,3 +6,4 @@ flaskr/__pycache__/auth.cpython-37.pyc
 flaskr/__pycache__/db.cpython-37.pyc
 flaskr/__pycache__/visible.cpython-37.pyc
 flaskr/__pycache__/web.cpython-37.pyc
+flaskr/upload/*
