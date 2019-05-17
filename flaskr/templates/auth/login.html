@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8" />
 	<title>登录界面</title>
 	<link rel="stylesheet" href="{{ url_for('static', filename='dmaku.main.css') }}" />
 </head>
+
 <body>
+	{% for message in get_flashed_messages() %}
+	<div class="flash">
+		<h3 style="text-align:left;color:red;">{{ message }}</h3>
+	</div>
+	{% endfor %}
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 login_content_wrapper">
 					<div class="content_wrapper">
-						
+
 						<h1 class="title">登录到您的帐户</h1>
 						<form class="new_user_session" id="new_user_session" accept-charset="UTF-8" method="post">
 							<div class="form-group">
@@ -20,13 +27,17 @@
 							</div>
 							<div class="form-group">
 								<label for="user_password">密码</label>
-								<input autocomplete="off" class="form-control" type="password" name="password" id="user_password" />
+								<input autocomplete="off" class="form-control" type="password" name="password"
+									id="user_password" />
 							</div>
 							<div class="form-group">
 								<div class="row">
 									<div class="col-sm-6">
-										<input name="user[remember_me]" type="hidden" value="0" /><input id="user_session_remember_me" type="checkbox" value="1" name="user[remember_me]" />
-										<label for="user_session_remember_me" style="font-size:13px;font-weight:normal;">记住帐号</label>
+										<input name="user[remember_me]" type="hidden" value="0" /><input
+											id="user_session_remember_me" type="checkbox" value="1"
+											name="user[remember_me]" />
+										<label for="user_session_remember_me"
+											style="font-size:13px;font-weight:normal;">记住帐号</label>
 									</div>
 									<div class="col-xs-12 col-sm-6 text-right">
 										<input class="btn btn-default btn-success" value="登 入" type="submit" />
@@ -36,16 +47,18 @@
 							<div class="from-group">
 								<div class="row forgot_password">
 									<div class="col-sm-12">
-										<a href="">忘记密码</a><a style="float:right;" href="{{ url_for('auth.register') }}">注册新帐号</a>
+										<a style="float:right;"
+											href="{{ url_for('auth.register') }}">注册新帐号</a>
 									</div>
 								</div>
 							</div>
 						</form>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
 	</div>
 </body>
+
 </html>

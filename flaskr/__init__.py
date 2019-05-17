@@ -1,4 +1,4 @@
-from flask import (Flask,render_template)
+from flask import (Flask,render_template,redirect,url_for)
 
 
 def create_app():
@@ -22,7 +22,7 @@ def create_app():
 
     @app.route('/')
     def index():
-        return render_template('base.html')
+        return redirect(url_for('auth.login'))
 
     return app
 
