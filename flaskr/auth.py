@@ -74,6 +74,9 @@ def register():
 
     return render_template('auth/register.html')
 
+@bp.route('/service', methods=('GET', 'POST'))
+def service():
+    return render_template('auth/Terms_of_Service.html')
 
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
