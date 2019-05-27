@@ -1,27 +1,22 @@
 html {
   font-family: sans-serif;
   background: #eee;
-
   padding: 1px;
 }
-
 body {
   max-width: 960px;
   margin: 0 auto;
   background: white;
 }
-
 h1, h2, h3, h4, h5, h6 {
   font-family: serif;
   color: #377ba8;
   margin: 1px 0;
 }
-
 a {
   color: #377ba8;
   text-decoration:none;
 }
-
 .user {
     list-style-type: none;
     margin: 0;

@@ -93,15 +93,12 @@ def login():
             error = 'Incorrect username.'
         elif not check_password_hash(user['password'], password):
             error = 'Incorrect password.'
-
         if error is None:
             # store the user id in a new session and return to the index
             session.clear()
             session['user_id'] = user['id']
             return redirect(url_for('web.index'))
-
         flash(error)
-
     return render_template('auth/login.html')
 
 

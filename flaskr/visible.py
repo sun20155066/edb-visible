@@ -80,7 +80,6 @@ def saveData(chartType):
 def bar_base() -> Bar:
     if len(names) == 0:
         pass
-
     elif len(names) == 1:
         c = (
             Bar()
